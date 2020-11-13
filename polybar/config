@@ -51,7 +51,7 @@ font-3 = "FontAwesome;0"
 
 modules-left = i3
 modules-center = date
-modules-right = pulseaudio battery 
+modules-right = pulseaudio 
 
 tray-position = right
 tray-padding = 2

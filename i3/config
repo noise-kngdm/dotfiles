@@ -36,31 +36,38 @@ exec --no-startup-id pulseaudio
 set $refresh_i3status killall -SIGUSR1 i3status
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 100% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Media Controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+# Media Controls (make sure you've installed playerctl!)
+bindsym $mod+ctrl+space exec playerctl play-pause
+bindsym $mod+ctrl+f exec playerctl next
+bindsym $mod+ctrl+b exec playerctl previous
+
+#bindsym XF86AudioPlay exec playerctl play-pause
+#bindsym XF86AudioPause exec playerctl play-pause
+#bindsym XF86AudioNext exec playerctl next
+#bindsym XF86AudioPrev exec playerctl previous
+
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec brightnessctl s 10%+ # increase screen brightness
 bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 
 # Use gnome-screenshot for screenshots
-bindsym Print exec --no-startup-id gnome-screenshot
-bindsym Shift+Print exec --no-startup-id gnome-screenshot -i
+#bindsym Print exec --no-startup-id gnome-screenshot
+bindsym $mod+ctrl+p exec --no-startup-id gnome-screenshot
+bindsym $mod+ctrl+shift+p exec --no-startup-id gnome-screenshot -i
 # Touch pad control
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec --no-startup-id /usr/local/bin/alacritty
-bindsym $mod+Return exec --no-startup-id /usr/bin/kitty
+#bindsym $mod+Return exec --no-startup-id /snap/bin/alacritty
+bindsym $mod+Return exec --no-startup-id /usr/bin/kitty    
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -73,7 +80,7 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 #bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
 
 # start firefox
-bindsym $mod+Ctrl+f exec --no-startup-id /bin/firefox
+bindsym $mod+Ctrl+w exec --no-startup-id /bin/firefox
 
 # start spotify
 bindsym $mod+Ctrl+s exec --no-startup-id /snap/bin/spotify
@@ -85,7 +92,7 @@ bindsym $mod+Ctrl+e exec --no-startup-id /bin/emacs
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
-bindsym $mod+ntilde focus right
+bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -207,7 +214,7 @@ mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ntilde resize grow width 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -302,6 +309,7 @@ exec --no-startup-id telegram-desktop
 exec --no-startup-id thunderbird
 exec --no-startup-id /home/gonzz/dotfiles/scripts/mega.sh
 exec --no-startup-id pulseaudio
+exec --no-startup-id blueman-applet
 # Set Wallpaper (directory to be specified)
 exec_always --no-startup-id feh --bg-fill ~/Wallpapers/anime/rei.png
 #Mountain.png
@@ -311,7 +319,8 @@ exec_always --no-startup-id picom
 
 
 # Swap Ctrl & Caps lock
-exec --no-startup-id setxkbmap -option ctrl:swapcaps
+exec_always --no-startup-id setxkbmap -option ctrl:swapcaps
+exec_always --no-startup-id setxkbmap -layout us -variant intl 
 
 # Work with two monitors
 # exec --no-startup-id xrandr | grep 'HDMI-1-1 connected' && xrandr --output eDP-1-1 --auto --output HDMI-1-1 --auto --right-of eDP-1-1

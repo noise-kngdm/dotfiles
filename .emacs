@@ -204,3 +204,6 @@
 
 ;; An alias for the replace-string function (kudos to github.com/jlxip)
 (defalias 'rs 'replace-string)
+
+;; to be able to use dead keys
+(require 'iso-transl)

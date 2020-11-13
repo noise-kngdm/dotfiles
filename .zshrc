@@ -8,7 +8,7 @@ export ZSH="/home/gonzz/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="cloud"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -97,13 +97,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Para añadir . al PATH
-export PATH="$PATH:."
-
-alias actualizar='sudo apt update; yes | sudo apt upgrade; sudo snap refresh'
-alias suicide='echo "youre dying in 3"; sleep 0.5; echo "2"; sleep 0.5; echo "1"; sleep 0.5; echo "youre dead"'
-alias py='python3'
-alias sl='echo adri es un guapo'
-alias t='trash'
-alias emacs='XLIB_SKIP_ARGB_VISUALS=1 emacs'
