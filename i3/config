@@ -315,8 +315,7 @@ exec_always --no-startup-id feh --bg-fill ~/Wallpapers/anime/rei.png
 #Mountain.png
 
 # Window compositor
-exec_always --no-startup-id picom
-
+exec --no-startup-id picom
 
 # Swap Ctrl & Caps lock
 exec_always --no-startup-id setxkbmap -option ctrl:swapcaps
