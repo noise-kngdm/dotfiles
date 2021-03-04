@@ -53,6 +53,7 @@ modules-left = i3
 modules-center = date
 modules-right = pulseaudio 
 
+;override-redirect = true
 tray-position = right
 tray-padding = 2
 tray-maxsize = 20

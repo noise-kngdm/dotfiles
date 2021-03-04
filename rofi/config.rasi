@@ -1,0 +1,8 @@
+configuration {
+	modi: "drun";
+	font: "Hack 13";
+	icon-theme: "Papirus";
+	show-icons: true;
+	combi-modi: "drun,run,ssh,window";
+	theme: "theme.rasi";
+}
